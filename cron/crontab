@@ -1,2 +1,3 @@
 # Executes Python Script Every 5 Minutes
-*/5 * * * * /app/pgaScores.py >> /logs/cron.log 2>&1
+@reboot /app/pgaScores.py
+*/5 * * * * /app/pgaScores.py
