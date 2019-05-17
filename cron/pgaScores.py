@@ -24,3 +24,5 @@ collection = db['actual']
 collection.find_one_and_replace({}, pga_data, upsert=True)
 
 print("Updated Document.")
+
+client.close()
