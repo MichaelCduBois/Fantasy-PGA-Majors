@@ -1,12 +1,5 @@
 version: "3"
 services:
-  cron:
-    container_name: cron
-    build: cron/.
-    restart: always
-    volumes:
-      - ./cron/cron.log:/logs/cron.log
-
   db:
     container_name: database
     image: mongo
@@ -14,6 +7,24 @@ services:
       - "27017"
     ports:
       - "27017:27017"
+    restart: always
+
+  cron:
+    container_name: cron
+    depends_on:
+      - db
+    build: cron/.
+    restart: always
+    volumes:
+      - ./cron/cron.log:/logs/cron.log
+
+  website:
+    container_name: website
+    depends_on:
+      - db
+    build: website/.
+    ports:
+      - "80:80"
     restart: always
 
   # nginx:
