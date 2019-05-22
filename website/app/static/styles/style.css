@@ -1,0 +1,15 @@
+.container {
+    margin: auto;
+    display: flex;
+    text-align: center;
+    width: fit-content;
+}
+
+.column {
+    padding: 5px;
+}
+
+.groups {
+    height: 250px;
+    width: 175px;
+}
