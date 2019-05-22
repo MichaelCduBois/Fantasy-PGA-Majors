@@ -15,7 +15,7 @@ RUN python3 -m pip install --trusted-host pypi.python.org -r requirements.txt
 # Crontab setup
 ADD crontab /etc/cron.d/pgatour
 RUN chmod 0755 /etc/cron.d/pgatour
-RUN chmod +x /app/pgaScores.py
+RUN chmod +x /usr/app/pgaScores.py
 RUN crontab /etc/cron.d/pgatour
 
 CMD ["cron", "-f"]
