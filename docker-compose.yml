@@ -15,8 +15,6 @@ services:
       - db
     build: cron/.
     restart: always
-    volumes:
-      - ./cron/cron.log:/logs/cron.log
 
   website:
     container_name: website
