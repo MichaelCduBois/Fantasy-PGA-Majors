@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<title>Admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+<script src="{{ url_for('static', filename='scripts/groups.js') }}" type="text/javascript"></script>
+<form method="POST">
+    <div class="container">
+        <div class="column">
+            <h2>Not Grouped</h2>
+            <div class="select">
+                <select multiple class="groups" id="nogroup" name="nogroup" size=15>
+                    {% for player in data.leaderboard.players %}
+                    <option value="{{ player.player_bio.first_name }} {{ player.player_bio.last_name }}">
+                        {{ player.player_bio.first_name }} {{ player.player_bio.last_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="buttons">
+                <button type="button" onclick="addGroup('group1')">1</button>
+                <button type="button" onclick="addGroup('group2')">2</button>
+                <button type="button" onclick="addGroup('group3')">3</button>
+                <button type="button" onclick="addGroup('group4')">4</button>
+                <button type="button" onclick="addGroup('group5')">5</button>
+                <button type="button" onclick="addGroup('group6')">6</button>
+            </div>
+        </div>
+        {% for group in groups %}
+        <div class="column">
+            <h2>Group {{ group }}</h2>
+            <div class="select">
+                <select multiple class="groups" id="group{{ group }}" name="group{{ group }}" size=15 required></select>
+            </div>
+            <div class="buttons">
+                <button type="button" onclick="removeGroup('group{{ group }}')">&lt;</button>
+                <button type="button" onclick="removeGroupAll('group{{ group }}')">&lt;&lt;</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button type="submit" onclick="selectAll()">Submit</button>
+</form>

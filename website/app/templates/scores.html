@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<title>Scoreboard</title>
+<meta http-equiv="refresh" content="30" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div>
+    <h1>{{ data.leaderboard.tournament_name }}</h1>
+    <table>
+        {% for player in data.leaderboard.players %}
+        <tr>
+            <td>
+                {{ player.current_position }}
+            </td>
+            <td>
+                {{ player.total }}
+            </td>
+            <td>
+                {{ player.player_bio.first_name }} {{ player.player_bio.last_name }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
