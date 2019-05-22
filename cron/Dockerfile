@@ -2,10 +2,10 @@
 FROM debian
 
 # Working Directory
-WORKDIR /app
+WORKDIR /usr/app
 
 # Copy files into app
-COPY . /app
+COPY . .
 
 # Commands to Update and Install needs
 RUN apt-get -y update
