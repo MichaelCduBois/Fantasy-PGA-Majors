@@ -13,14 +13,22 @@ bp = Blueprint('index', __name__)
 # Index Setup
 @bp.route('/')
 def index():
-
+    """
+    Site Index.
+    Keyword arguments:
+    None
+    """
     return "Page Index"
 
 
 # Gets Current Golfer Skills
 @bp.route('/scores')
 def scores():
-
+    """
+    Displays scores from the live PGA tournament.
+    Keyword arguments:
+    None
+    """
     # Pymongo Connection
     client = pymongo.MongoClient("mongodb://database:27017")
 
@@ -56,7 +64,12 @@ def scores():
     methods=('GET', 'POST')
 )
 def league_index(league_id, admin_key):
-
+    """
+    Displays specific league page.
+    Keyword arguments:
+    league_id -- ID for a specific league
+    admin_key -- Key allowing admin access to league
+    """
     # Pymongo Connection
     client = pymongo.MongoClient("mongodb://database:27017")
 
@@ -123,5 +136,9 @@ def league_index(league_id, admin_key):
 # League Creation
 @bp.route('/league/new')
 def create_league():
-
+    """
+    Endpoint that creates a new league
+    Keyword arguments:
+    None
+    """
     return leagues.create()

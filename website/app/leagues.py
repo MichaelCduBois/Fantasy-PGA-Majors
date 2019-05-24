@@ -4,7 +4,11 @@ from uuid import uuid4
 
 
 def create():
-
+    """
+    Creates a new league.
+    Keyword arguments:
+    None
+    """
     # Creates league an assigns an ID
     league_id = str(uuid4()).replace("-", "")
     admin_key = str(uuid4())[:8]
@@ -37,7 +41,9 @@ def create():
 
 
 def get_info(selected_league):
-
+    """
+    Send a chat message to the server.
+    Keyword arguments:
+    selected_league -- Generates scoreboard for desired league
+    """
     return render_template('scoreboard.html', league=selected_league)
-
-    # return "Please Enter Valid League ID."
